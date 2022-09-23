@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jea Gozo Activity</title>
+</head>
+<body> 
+    <h1>Setup:<span id = "setup"></span><br></h1>
+    <h2>Punchline:<span id = "punchline"></span><br /></h2>
+</body>
+<script type ="text/javascript">
+
+    async function GetData(){
+        const res = await fetch("https://official-joke-api.appspot.com/random_joke")
+        const data = await res.json();
+        const {setup, punchline} = data;
+
+        document.getElementById('setup').textContent=setup;
+        document.getElementById('punchline').textContent=punchline;
+        
+
+    }
+
+    GetData();
+    
+</script>
+</html>
